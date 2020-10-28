@@ -41,14 +41,14 @@ namespace MailWebApplication.Controllers
             mailMessage.Subject = Subject;
             mailMessage.Body = textBody;
             mailMessage.To.Add(ToEmail);
-            mailMessage.From = new MailAddress("akkystr@gmail.com");
+            mailMessage.From = new MailAddress("FromEmailID");
             mailMessage.IsBodyHtml = true;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("akkystr@gmail.com", "Iloveakshaysutar@2");
+            smtp.Credentials = new System.Net.NetworkCredential("FromEmailID", "password");
             smtp.Send(mailMessage);
 
             ViewBag.message = "The mail has been sent to " + mailMessage.To + "successfully";
